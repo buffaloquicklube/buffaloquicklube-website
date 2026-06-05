@@ -3,138 +3,242 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Buffalo Quick Lube | Oil Changes in Buffalo, MN</title>
 
   <style>
+    :root {
+      --purple: #7A2CCB;
+      --purple-light: #B07CFF;
+      --purple-bright: #9A4DFF;
+      --dark-purple: #1B022E;
+      --black: #050505;
+      --dark-card: #111111;
+      --gray: #cccccc;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #111;
-      color: #fff;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
     }
 
     header {
       background: #000;
       text-align: center;
-      padding: 25px 20px;
-      border-bottom: 4px solid #7b2cff;
+      padding: 28px 18px 24px;
+      border-bottom: 5px solid var(--purple);
     }
 
     .logo {
-      max-width: 320px;
-      width: 80%;
-      height: auto;
+      width: min(650px, 90%);
+      max-height: 230px;
+      object-fit: contain;
       display: block;
-      margin: 0 auto 10px auto;
+      margin: 0 auto 12px;
     }
 
     .tagline {
-      color: #c7a6ff;
-      font-size: 22px;
-      font-weight: bold;
-      letter-spacing: 1px;
+      color: var(--purple-light);
+      font-size: clamp(24px, 5vw, 38px);
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin: 0;
     }
 
     .hero {
       text-align: center;
-      padding: 70px 20px;
-      background: linear-gradient(135deg, #111, #2b0055);
+      padding: 80px 20px 95px;
+      background:
+        radial-gradient(circle at top right, rgba(122, 44, 203, 0.55), transparent 35%),
+        linear-gradient(135deg, #050505, var(--dark-purple), #090909);
     }
 
     .hero h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
+      font-size: clamp(38px, 8vw, 72px);
+      line-height: 1.12;
+      margin: 0 auto 22px;
+      max-width: 1050px;
+      font-weight: 900;
     }
 
     .hero p {
-      font-size: 20px;
-      max-width: 750px;
-      margin: 15px auto;
-      line-height: 1.5;
+      font-size: clamp(20px, 4vw, 31px);
+      max-width: 850px;
+      margin: 0 auto 34px;
+      color: #f2f2f2;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
     }
 
     .button {
       display: inline-block;
-      margin: 12px;
-      padding: 15px 25px;
-      background: #7b2cff;
-      color: #fff;
+      min-width: 285px;
+      padding: 18px 28px;
+      background: linear-gradient(135deg, var(--purple), var(--purple-bright));
+      color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 22px;
+      box-shadow: 0 0 24px rgba(122, 44, 203, 0.45);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 32px rgba(154, 77, 255, 0.55);
     }
 
     .section {
-      max-width: 1050px;
+      padding: 70px 22px;
+      max-width: 1150px;
       margin: auto;
-      padding: 50px 20px;
     }
 
     .section h2 {
       text-align: center;
-      font-size: 34px;
-      margin-bottom: 30px;
+      font-size: clamp(36px, 7vw, 60px);
+      margin: 0 0 35px;
+      line-height: 1.1;
+    }
+
+    .section h2::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 6px;
+      background: var(--purple);
+      border-radius: 10px;
+      margin: 18px auto 0;
     }
 
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
     }
 
     .card {
-      background: #1b1b1b;
-      border: 1px solid #333;
-      border-radius: 14px;
-      padding: 25px;
+      background:
+        linear-gradient(145deg, rgba(122, 44, 203, 0.12), rgba(255,255,255,0.02)),
+        var(--dark-card);
+      padding: 28px;
+      border-radius: 18px;
+      border: 1px solid rgba(176, 124, 255, 0.28);
+      box-shadow: 0 0 18px rgba(0,0,0,0.35);
     }
 
     .card h3 {
-      color: #c7a6ff;
-      margin-top: 0;
+      color: var(--purple-light);
+      font-size: 25px;
+      margin: 0 0 12px;
+      line-height: 1.2;
+    }
+
+    .card p {
+      color: #e8e8e8;
+      font-size: 19px;
+      margin: 0;
+    }
+
+    .coupon-wrap {
+      background:
+        radial-gradient(circle at top left, rgba(176,124,255,.25), transparent 35%),
+        linear-gradient(135deg, #12001f, #050505);
+      border-top: 1px solid rgba(176,124,255,.25);
+      border-bottom: 1px solid rgba(176,124,255,.25);
     }
 
     .coupon {
-      background: #7b2cff;
-      color: white;
-      text-align: center;
-      padding: 35px 25px;
-      border-radius: 16px;
-      max-width: 800px;
+      max-width: 850px;
       margin: auto;
+      background: linear-gradient(135deg, var(--purple), var(--purple-bright));
+      padding: 38px 24px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 0 35px rgba(122,44,203,.5);
     }
 
     .coupon h2 {
-      margin-top: 0;
+      font-size: clamp(36px, 7vw, 56px);
+      margin: 0 0 10px;
     }
 
-    .contact {
+    .coupon h2::after {
+      display: none;
+    }
+
+    .coupon .deal {
+      font-size: clamp(27px, 6vw, 44px);
+      font-weight: 900;
+      margin: 12px 0;
+    }
+
+    .coupon p {
+      font-size: 21px;
+      margin: 8px 0;
+    }
+
+    .info-box {
       text-align: center;
-      line-height: 1.7;
-      font-size: 18px;
+      background: #101010;
+      border: 1px solid rgba(176,124,255,.25);
+      border-radius: 20px;
+      padding: 32px;
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .info-box p {
+      font-size: 21px;
+      margin: 10px 0;
+    }
+
+    .info-box strong {
+      color: var(--purple-light);
     }
 
     footer {
+      text-align: center;
+      padding: 34px 20px;
       background: #000;
       color: #aaa;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
+      border-top: 4px solid var(--purple);
+      font-size: 16px;
     }
 
     @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 32px;
+      header {
+        padding-top: 22px;
       }
 
-      .hero p {
-        font-size: 18px;
+      .logo {
+        width: 92%;
+      }
+
+      .hero {
+        padding: 60px 20px 75px;
       }
 
       .button {
-        display: block;
-        max-width: 280px;
-        margin: 12px auto;
+        width: 100%;
+        min-width: unset;
+      }
+
+      .section {
+        padding: 58px 18px;
       }
     }
   </style>
@@ -143,15 +247,18 @@
 <body>
 
   <header>
-    <img src="./images/logo.png" alt="Buffalo Quick Lube Logo" class="logo">
-    <div class="tagline">Clean • Honest • Fast</div>
+    <img class="logo" src="images/logo.png" alt="Buffalo Quick Lube Logo" />
+    <p class="tagline">Clean • Honest • Fast</p>
   </header>
 
   <section class="hero">
     <h1>Drive-Up Oil Changes in Buffalo, MN</h1>
     <p>Under new management and focused on fast, honest service without the pressure.</p>
-    <a class="button" href="tel:7636826960">Call 763-682-6960</a>
-    <a class="button" href="https://g.page/r/CcprTkrPHlDGEBM/review" target="_blank">Leave a Google Review</a>
+
+    <div class="button-row">
+      <a class="button" href="tel:7636826960">Call 763-682-6960</a>
+      <a class="button" href="https://g.page/r/CcprTkrPHlDGEBM/review" target="_blank">Leave a Google Review</a>
+    </div>
   </section>
 
   <section class="section">
@@ -180,20 +287,25 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="coupon">
-      <h2>Monthly Special</h2>
-      <p><strong>$10 Off Any Oil Change</strong></p>
-      <p>Show this coupon on your phone at checkout.</p>
+  <section class="coupon-wrap">
+    <div class="section">
+      <div class="coupon">
+        <h2>Monthly Special</h2>
+        <p class="deal">$10 Off Any Oil Change</p>
+        <p>Show this coupon on your phone at checkout.</p>
+      </div>
     </div>
   </section>
 
-  <section class="section contact">
+  <section class="section">
     <h2>Visit Us</h2>
-    <p><strong>Buffalo Quick Lube</strong></p>
-    <p>300 10th Ave S<br>Buffalo, MN 55313</p>
-    <p>Behind Speedway / attached to Tires Plus</p>
-    <p><strong>Phone:</strong> 763-682-6960</p>
+
+    <div class="info-box">
+      <p><strong>Buffalo Quick Lube</strong></p>
+      <p>300 10th Ave S, Buffalo, MN 55313</p>
+      <p>Behind Speedway / attached to Tires Plus</p>
+      <p><strong>Phone:</strong> 763-682-6960</p>
+    </div>
   </section>
 
   <footer>
