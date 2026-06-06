@@ -98,10 +98,16 @@ a {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--charcoal);
-  color: #ffffff;
-  font-size: 1.4rem;
-  line-height: 1;
+  padding: 10px;
   cursor: pointer;
+}
+
+.menu-btn span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--purple);
 }
 
 .site-nav {
@@ -152,6 +158,47 @@ a {
   font-weight: 900;
   letter-spacing: 0.13em;
   text-transform: uppercase;
+}
+
+.hero-brand-mark {
+  width: min(360px, 100%);
+  margin-bottom: 26px;
+}
+
+.social-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  border: 2px solid var(--purple);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--purple);
+  font-size: 1.35rem;
+  font-weight: 900;
+}
+
+.instagram-badge {
+  position: relative;
+}
+
+.instagram-badge::before {
+  content: "";
+  width: 23px;
+  height: 23px;
+  border: 3px solid var(--purple);
+  border-radius: 8px;
+}
+
+.instagram-badge::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: 3px solid var(--purple);
+  border-radius: 999px;
+  box-shadow: 11px -11px 0 -3px var(--purple);
 }
 
 h1,
@@ -638,6 +685,8 @@ h1 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 5px;
   }
 
   .site-nav {
