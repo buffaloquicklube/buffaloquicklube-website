@@ -161,8 +161,8 @@ a {
 }
 
 .hero-brand-mark {
-  width: min(360px, 100%);
-  margin-bottom: 26px;
+  width: min(500px, 100%);
+  margin-bottom: 28px;
 }
 
 .social-badge {
@@ -210,7 +210,7 @@ h3 {
 
 h1 {
   max-width: 760px;
-  font-size: clamp(2.6rem, 5.6vw, 5.4rem);
+  font-size: clamp(2.35rem, 4.4vw, 4.45rem);
   letter-spacing: 0;
 }
 
