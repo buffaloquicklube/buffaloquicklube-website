@@ -1,95 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Buffalo Quick Lube | Clean Honest Fast</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <div class="nav-wrap">
-    <a class="logo-area" href="index.html">
-      <img src="images/logo.png" alt="Buffalo Quick Lube Logo">
-      <div class="logo-text">
-        <h1>Buffalo Quick Lube</h1>
-        <p>Clean • Honest • Fast</p>
-      </div>
+<header class="top-header">
+  <div class="header-inner">
+    <a href="index.html" class="main-logo">
+      <img src="images/logo.png" alt="Buffalo Quick Lube Logo" />
     </a>
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-    <nav id="navMenu">
-      <a class="active" href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="pricing.html">Pricing</a>
-      <a href="coupons.html">Coupons</a>
-      <a href="team.html">Meet The Team</a>
-      <a href="faq.html">FAQ</a>
-      <a href="careers.html">Join Our Team</a>
-      <a href="social.html">Social Media</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+
+    <div class="header-info">
+      <p>📞 <a href="tel:7636826960">763-682-6960</a></p>
+      <p>📍 <a href="https://www.google.com/maps/search/?api=1&query=300+10th+Ave+S+Buffalo+MN+55313" target="_blank">300 10th Ave S<br>Buffalo, MN 55313</a></p>
+      <small>Behind Speedway / Attached to Tires Plus</small>
+    </div>
   </div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+  <nav id="navMenu">
+    <a class="active" href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="coupons.html">Coupons</a>
+    <a href="team.html">Meet The Team</a>
+    <a href="faq.html">FAQ</a>
+    <a href="careers.html">Join Our Team</a>
+    <a href="social.html">Social Media</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
-  <img src="images/logo.png" alt="Buffalo Quick Lube Logo">
-  <h2>Clean. Honest. Fast.</h2>
-  <p>Drive-up oil changes and quick service in Buffalo, Minnesota. Friendly service, clear pricing, and an average wait time of 10–15 minutes.</p>
-  <div class="btn-row">
-    <a class="btn" href="tel:7636826960">Call Now</a>
-    <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=300+10th+Ave+S+Buffalo+MN+55313" target="_blank">Get Directions</a>
+  <div class="hero-content">
+    <h1><span>Clean.</span><span class="purple">Honest.</span><span>Fast.</span></h1>
+    <div class="hero-line"></div>
+    <p>
+      Drive-up oil changes and quick service in Buffalo, Minnesota.
+      Friendly service, clear pricing, and an average wait time of 10–15 minutes.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn" href="tel:7636826960">📞 Call Now<br><small>763-682-6960</small></a>
+      <a class="btn outline" href="https://www.google.com/maps/search/?api=1&query=300+10th+Ave+S+Buffalo+MN+55313" target="_blank">📍 Get Directions<br><small>300 10th Ave S, Buffalo, MN</small></a>
+    </div>
   </div>
 </section>
 
-<section class="section">
-  <h2>Welcome to Buffalo Quick Lube</h2>
-  <p>We are proud to serve Buffalo and the surrounding communities with quick, honest, and professional service. No pressure. No confusion. Just the maintenance your vehicle needs.</p>
+<section class="feature-strip">
+  <div class="feature">
+    <div class="icon">⏱</div>
+    <h3>Fast Service</h3>
+    <p>Average wait time is usually 10–15 minutes.</p>
+  </div>
 
-  <div class="grid">
-    <div class="card">
-      <h3>Fast Service</h3>
-      <p>Average wait time is usually 10–15 minutes depending on traffic and vehicle needs.</p>
-    </div>
-    <div class="card">
-      <h3>Honest Recommendations</h3>
-      <p>We explain what we see, what we recommend, and why it matters for your vehicle.</p>
-    </div>
-    <div class="card">
-      <h3>Convenient Location</h3>
-      <p>Located behind Speedway and attached to Tires Plus in Buffalo, MN.</p>
-    </div>
+  <div class="feature">
+    <div class="icon">🛡</div>
+    <h3>Honest Recommendations</h3>
+    <p>We explain what we see, what we recommend, and why it matters.</p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">📍</div>
+    <h3>Convenient Location</h3>
+    <p>Located behind Speedway and attached to Tires Plus in Buffalo.</p>
+  </div>
+
+  <div class="feature">
+    <div class="icon">👥</div>
+    <h3>Locally Managed</h3>
+    <p>Proudly serving Buffalo and the surrounding communities.</p>
+  </div>
+</section>
+
+<section class="welcome-section">
+  <div class="welcome-text">
+    <h2>Welcome to <span>Buffalo Quick Lube</span></h2>
+    <p>
+      Our goal is simple: provide quality service quickly, honestly, and with a smile.
+      Whether you're here for an oil change or other quick maintenance, we’ll help
+      get you in, taken care of, and back on the road.
+    </p>
+  </div>
+
+  <div class="welcome-box">
+    <h3>No Appointment Needed</h3>
+    <p>Pull in during business hours and we’ll take care of you.</p>
   </div>
 </section>
 
 <footer>
-  <div class="footer-wrap">
+  <div class="footer-grid">
     <div>
-      <h3>Buffalo Quick Lube</h3>
-      <p>Clean • Honest • Fast</p>
-      <p><a class="map-link" href="https://www.google.com/maps/search/?api=1&query=300+10th+Ave+S+Buffalo+MN+55313" target="_blank">300 10th Ave S, Buffalo, MN 55313</a></p>
+      <img src="images/logo.png" alt="Buffalo Quick Lube Logo" class="footer-logo" />
+      <p class="tagline">Clean • Honest • Fast</p>
+      <p>
+        <a href="https://www.google.com/maps/search/?api=1&query=300+10th+Ave+S+Buffalo+MN+55313" target="_blank">
+          300 10th Ave S<br>Buffalo, MN 55313
+        </a>
+      </p>
       <p>Behind Speedway / Attached to Tires Plus</p>
-      <p><a class="phone-link" href="tel:7636826960">763-682-6960</a></p>
+      <p><a href="tel:7636826960">763-682-6960</a></p>
+      <p>Facebook & Instagram coming soon!</p>
     </div>
+
     <div>
       <h3>Hours</h3>
-      <p>Monday–Friday: 8:00 AM – 6:00 PM</p>
-      <p>Saturday: Closed</p>
-      <p>Sunday: Closed</p>
+      <p>Monday – Friday<br>8:00 AM – 6:00 PM</p>
+      <p>Saturday<br>Closed</p>
+      <p>Sunday<br>Closed</p>
     </div>
+
     <div>
       <h3>Quick Links</h3>
-      <p><a href="services.html">Services</a></p>
-      <p><a href="pricing.html">Pricing</a></p>
-      <p><a href="coupons.html">Coupons</a></p>
-      <p><a href="contact.html">Contact Us</a></p>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="coupons.html">Monthly Coupons</a>
+      <a href="team.html">Meet The Team</a>
+      <a href="faq.html">FAQ</a>
+      <a href="careers.html">Join Our Team</a>
+      <a href="social.html">Social Media</a>
+      <a href="contact.html">Contact Us</a>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2026 Buffalo Quick Lube. All Rights Reserved.</p>
+
+  <div class="copyright">
+    © 2026 Buffalo Quick Lube. All Rights Reserved.
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script>
+  function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("show");
+  }
+</script>
+
 </body>
 </html>
