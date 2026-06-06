@@ -1,388 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Buffalo Quick Lube | Clean • Honest • Fast</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buffalo Quick Lube</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --purple: #7b2cff;
-      --purple2: #9b5cff;
-      --black: #050505;
-      --dark: #111111;
-      --card: #181818;
-      --white: #ffffff;
-      --light: #f4f4f6;
-      --muted: #bdbdbd;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Inter", Arial, sans-serif;
-      background: var(--black);
-      color: var(--white);
-      line-height: 1.6;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(5, 5, 5, 0.96);
-      border-bottom: 1px solid rgba(123, 44, 255, 0.7);
-      backdrop-filter: blur(10px);
-    }
-
-    .nav-wrap {
-      max-width: 1200px;
-      margin: auto;
-      padding: 16px 22px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .brand {
-      font-size: 23px;
-      font-weight: 900;
-      letter-spacing: -0.5px;
-    }
-
-    .brand span {
-      color: var(--purple2);
-    }
-
-    .menu-btn {
-      display: none;
-      background: none;
-      color: white;
-      border: none;
-      font-size: 32px;
-      cursor: pointer;
-    }
-
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      margin-left: 16px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    nav a:hover {
-      color: var(--purple2);
-    }
-
-    .banner {
-      background: linear-gradient(90deg, var(--purple), var(--purple2));
-      text-align: center;
-      padding: 12px;
-      font-weight: 900;
-    }
-
-    section {
-      padding: 70px 22px;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .hero {
-      min-height: 78vh;
-      display: flex;
-      align-items: center;
-      text-align: center;
-      background:
-        radial-gradient(circle at top right, rgba(123, 44, 255, 0.35), transparent 35%),
-        linear-gradient(135deg, #050505, #151019);
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 8vw, 78px);
-      font-weight: 900;
-      letter-spacing: -2px;
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-
-    .hero h2 {
-      color: var(--purple2);
-      font-size: clamp(22px, 4vw, 34px);
-      margin-bottom: 22px;
-      font-weight: 900;
-    }
-
-    .hero p {
-      max-width: 760px;
-      margin: 0 auto 24px;
-      color: #e7e7e7;
-      font-size: 19px;
-    }
-
-    .quick-info {
-      display: inline-block;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 22px;
-      padding: 18px 26px;
-      margin-bottom: 22px;
-      font-weight: 700;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--purple);
-      color: white;
-      padding: 14px 22px;
-      margin: 8px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 900;
-      border: 2px solid var(--purple);
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: var(--purple2);
-      border-color: var(--purple2);
-    }
-
-    .btn.secondary {
-      background: transparent;
-      border: 2px solid var(--purple2);
-    }
-
-    .light {
-      background: var(--light);
-      color: var(--black);
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: clamp(30px, 5vw, 46px);
-      font-weight: 900;
-      margin-bottom: 14px;
-      letter-spacing: -1px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 38px;
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .light .section-subtitle {
-      color: #555;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 22px;
-      padding: 28px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
-
-    .light .card {
-      background: white;
-      color: var(--black);
-      border: 1px solid #ddd;
-    }
-
-    .card h3 {
-      color: var(--purple2);
-      margin-bottom: 10px;
-      font-size: 22px;
-    }
-
-    .price {
-      font-size: 30px;
-      font-weight: 900;
-      margin: 14px 0 8px;
-    }
-
-    .small {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .light .small {
-      color: #666;
-    }
-
-    ul {
-      padding-left: 20px;
-      margin-top: 10px;
-    }
-
-    .team-img {
-      width: 100%;
-      height: 230px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #333, #111);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      margin-bottom: 18px;
-      font-weight: 700;
-    }
-
-    form {
-      max-width: 850px;
-      margin: auto;
-      background: var(--card);
-      padding: 30px;
-      border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 14px;
-      border-radius: 12px;
-      border: none;
-      font-family: inherit;
-      font-size: 15px;
-    }
-
-    textarea {
-      min-height: 110px;
-    }
-
-    label {
-      display: block;
-      font-weight: 800;
-      margin-bottom: 6px;
-    }
-
-    .contact-card {
-      text-align: center;
-      max-width: 780px;
-      margin: auto;
-    }
-
-    .hours-box {
-      margin-top: 18px;
-      padding: 18px;
-      background: rgba(123,44,255,0.12);
-      border-radius: 16px;
-      border: 1px solid rgba(123,44,255,0.25);
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px;
-      border-top: 1px solid rgba(123, 44, 255, 0.7);
-      background: #000;
-      color: #bbb;
-    }
-
-    .floating-call {
-      display: none;
-    }
-
-    @media (max-width: 850px) {
-      .menu-btn {
-        display: block;
-      }
-
-      nav {
-        display: none;
-        width: 100%;
-        background: #080808;
-        padding: 12px 0 18px;
-        border-top: 1px solid rgba(123, 44, 255, 0.5);
-      }
-
-      nav.active {
-        display: block;
-      }
-
-      nav a {
-        display: block;
-        margin: 0;
-        padding: 13px 22px;
-        border-bottom: 1px solid rgba(255,255,255,0.06);
-      }
-
-      .nav-wrap {
-        flex-wrap: wrap;
-      }
-
-      .floating-call {
-        display: block;
-        position: fixed;
-        bottom: 14px;
-        left: 14px;
-        right: 14px;
-        z-index: 2000;
-        text-align: center;
-        background: var(--purple);
-        color: white;
-        padding: 15px;
-        border-radius: 999px;
-        text-decoration: none;
-        font-weight: 900;
-        box-shadow: 0 8px 30px rgba(0,0,0,0.45);
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
   <div class="nav-wrap">
-    <div class="brand">Buffalo <span>Quick Lube</span></div>
+    <a class="logo-link" href="index.html">
+      <img src="logo.png" alt="Buffalo Quick Lube Logo">
+      Buffalo <span>Quick Lube</span>
+    </a>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
     <nav id="menu">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#coupons">Coupons</a>
-      <a href="#team">Team</a>
-      <a href="#commercial">Commercial</a>
-      <a href="#social">Social</a>
-      <a href="#faq">FAQ</a>
-      <a href="#careers">Careers</a>
-      <a href="#contact">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="coupons.html">Coupons</a>
+      <a href="team.html">Team</a>
+      <a href="commercial.html">Commercial</a>
+      <a href="social.html">Social</a>
+      <a href="faq.html">FAQ</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </div>
 </header>
 
 <div class="banner">Under New Management — Clean • Honest • Fast</div>
 
-<section class="hero" id="home">
+<section class="hero">
   <div class="container">
+    <img class="hero-logo" src="logo.png" alt="Buffalo Quick Lube Logo">
     <h1>Buffalo Quick Lube</h1>
     <h2>Clean • Honest • Fast</h2>
-
     <p>
       Drive-up oil change service in Buffalo, MN. No appointment needed.
       Average service time is typically 10–15 minutes depending on traffic and vehicle type.
@@ -398,7 +54,7 @@
     <br>
 
     <a class="btn" href="tel:7636826960">Call Now</a>
-    <a class="btn secondary" href="https://g.page/r/CcprTkrPHlDGEBM/review" target="_blank">Leave a Review</a>
+    <a class="btn secondary" href="services.html">View Services</a>
     <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=300+10th+Ave+S+Buffalo+MN+55313" target="_blank">Get Directions</a>
   </div>
 </section>
@@ -413,337 +69,18 @@
         <h3>No Appointment Needed</h3>
         <p>Pull in when it works for you. We keep the process simple and quick.</p>
       </div>
-
       <div class="card">
         <h3>Clear View Courtesy Service</h3>
         <p>We clean your front and rear glass with every oil change so you leave with a clearer view.</p>
       </div>
-
       <div class="card">
         <h3>Honest Recommendations</h3>
         <p>We explain what your vehicle may need without pushy sales pressure.</p>
       </div>
-
       <div class="card">
         <h3>Convenient Hours</h3>
         <p>Open Monday through Friday from 8:00 AM to 6:00 PM.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <h2 class="section-title">Services & Pricing</h2>
-    <p class="section-subtitle">Oil change pricing may vary depending on oil quantity and filter type.</p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Semi Synthetic Oil Change</h3>
-        <p>Great value for many everyday vehicles.</p>
-        <div class="price">Starting at $55</div>
-        <p class="small">Oil quantity and filter type may change final price.</p>
-      </div>
-
-      <div class="card">
-        <h3>Full Synthetic Oil Change</h3>
-        <p>Premium protection for modern engines and extended durability.</p>
-        <div class="price">Starting at $68</div>
-        <p class="small">Oil quantity and filter type may change final price.</p>
-      </div>
-
-      <div class="card">
-        <h3>High Mileage Treatment</h3>
-        <p>Recommended for vehicles over 75,000 miles. Helps condition seals and protect higher-mile engines.</p>
-        <div class="price">$15</div>
-      </div>
-
-      <div class="card">
-        <h3>Fuel System Cleaner</h3>
-        <p>Helps clean fuel injectors, reduce buildup, improve throttle response, and support better fuel economy.</p>
-        <div class="price">Ask us</div>
-      </div>
-
-      <div class="card">
-        <h3>Air Filters</h3>
-        <p>A clean engine air filter helps your vehicle breathe properly and protects the engine from dirt and debris.</p>
-        <div class="price">Ask us</div>
-      </div>
-
-      <div class="card">
-        <h3>Cabin Air Filters</h3>
-        <p>Helps keep dust, pollen, and odors out of the air you breathe inside the vehicle.</p>
-        <div class="price">Ask us</div>
-      </div>
-
-      <div class="card">
-        <h3>Battery Test</h3>
-        <p>Quick battery test to help catch weak batteries before they leave you stranded.</p>
-        <div class="price">Free</div>
-      </div>
-
-      <div class="card">
-        <h3>Battery Replacement</h3>
-        <p>Replacement is typically $25 plus battery price, depending on the vehicle.</p>
-        <div class="price">$25 + Battery</div>
-      </div>
-
-      <div class="card">
-        <h3>Battery Terminal Cleaning</h3>
-        <p>Cleaning and protecting terminals helps improve connection and prevent corrosion issues.</p>
-        <div class="price">$15</div>
-      </div>
-
-      <div class="card">
-        <h3>Coming Soon</h3>
-        <p>Coolant flush and transmission flush services are coming soon.</p>
-        <div class="price">Coming Soon</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="light" id="coupons">
-  <div class="container">
-    <h2 class="section-title">Monthly Coupons</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Monthly Oil Change Special</h3>
-        <p><strong>$10 Off Any Oil Change</strong></p>
-        <p>Show this coupon, screenshot it, or mention it when you arrive.</p>
-      </div>
-
-      <div class="card">
-        <h3>Air Filter Special</h3>
-        <p><strong>10% Off Air Filters</strong></p>
-        <p>Protect your engine and keep clean air flowing.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="team">
-  <div class="container">
-    <h2 class="section-title">Meet the Team</h2>
-
-    <div class="grid">
-      <div class="card">
-        <div class="team-img">Photo Coming Soon</div>
-        <h3>George</h3>
-        <p>Lead Technician</p>
-      </div>
-
-      <div class="card">
-        <div class="team-img">Photo Coming Soon</div>
-        <h3>Ryker</h3>
-        <p>Service Specialist</p>
-      </div>
-
-      <div class="card">
-        <div class="team-img">Photo Coming Soon</div>
-        <h3>Ashlyn</h3>
-        <p>Lube Technician / Service Writer</p>
-      </div>
-
-      <div class="card">
-        <div class="team-img">Photo Coming Soon</div>
-        <h3>Aszadeen</h3>
-        <p>Lube Technician</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="light" id="commercial">
-  <div class="container">
-    <h2 class="section-title">Commercial Accounts</h2>
-    <p class="section-subtitle">Simple maintenance options for local businesses, departments, and company vehicles.</p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Easy Billing</h3>
-        <p>Ask us about 30 or 60 day commercial account options.</p>
-      </div>
-
-      <div class="card">
-        <h3>Local Vehicle Maintenance</h3>
-        <p>Keep your company vehicles serviced quickly without slowing down your day.</p>
-      </div>
-
-      <div class="card">
-        <h3>Reliable Service</h3>
-        <p>Clear communication, fast service, and honest recommendations for your vehicles.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="social">
-  <div class="container">
-    <h2 class="section-title">Social Media</h2>
-
-    <p class="section-subtitle">
-      Follow Buffalo Quick Lube to keep up with the latest happenings, coupons, promotions,
-      giveaways, shop updates, and community news.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Facebook</h3>
-        <p>
-          Our Facebook page is coming soon. Follow us for monthly specials, shop news,
-          promotions, giveaways, and local updates.
-        </p>
-        <div class="price">Coming Soon</div>
-        <a class="btn secondary" href="#">Facebook</a>
-      </div>
-
-      <div class="card">
-        <h3>Instagram</h3>
-        <p>
-          Our Instagram page is coming soon. Stay updated with behind-the-scenes photos,
-          customer vehicles, promotions, and shop happenings.
-        </p>
-        <div class="price">Coming Soon</div>
-        <a class="btn secondary" href="#">Instagram</a>
-      </div>
-
-      <div class="card">
-        <h3>What You’ll Find</h3>
-        <ul>
-          <li>Monthly coupons</li>
-          <li>Special promotions</li>
-          <li>Giveaways</li>
-          <li>Shop updates</li>
-          <li>Community events</li>
-          <li>Vehicle maintenance tips</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="light" id="faq">
-  <div class="container">
-    <h2 class="section-title">FAQ</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Do I need an appointment?</h3>
-        <p>No. Buffalo Quick Lube is drive-up service only.</p>
-      </div>
-
-      <div class="card">
-        <h3>How long does an oil change take?</h3>
-        <p>Average service time is typically 10–15 minutes depending on traffic and vehicle type.</p>
-      </div>
-
-      <div class="card">
-        <h3>What are your hours?</h3>
-        <p>Monday–Friday: 8:00 AM – 6:00 PM. Saturday and Sunday: Closed.</p>
-      </div>
-
-      <div class="card">
-        <h3>Can you look up my vehicle specs?</h3>
-        <p>Yes. We can help verify the correct oil type and capacity for your vehicle.</p>
-      </div>
-
-      <div class="card">
-        <h3>Do you rotate tires?</h3>
-        <p>No, but you can make an appointment at Tires Plus while you wait.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="careers">
-  <div class="container">
-    <h2 class="section-title">Join Our Team</h2>
-    <p class="section-subtitle">Apply below and we’ll reach out when we’re hiring.</p>
-
-    <form action="https://formsubmit.co/buffaloquicklube@gmail.com" method="POST">
-      <input type="hidden" name="_subject" value="New Buffalo Quick Lube Application">
-      <input type="hidden" name="_captcha" value="false">
-
-      <label>First and Last Name</label>
-      <input type="text" name="Full Name" required>
-
-      <label>Position Interested In</label>
-      <select name="Position Interested In" required>
-        <option value="">Select one</option>
-        <option>Lube Tech</option>
-        <option>Service Writer</option>
-        <option>Other</option>
-      </select>
-
-      <label>If Other, Explain</label>
-      <input type="text" name="Other Position">
-
-      <label>Availability</label>
-      <select name="Availability" required>
-        <option value="">Select one</option>
-        <option>Full Time</option>
-        <option>Part Time</option>
-        <option>Either</option>
-      </select>
-
-      <label>Best Phone Number</label>
-      <input type="tel" name="Phone Number" required>
-
-      <label>Email Address</label>
-      <input type="email" name="Email Address" required>
-
-      <label>Best Time of Day to Contact</label>
-      <input type="text" name="Best Time to Contact" placeholder="Morning, afternoon, evening, etc.">
-
-      <label>Do you have experience?</label>
-      <select name="Experience" required>
-        <option value="">Select one</option>
-        <option>Yes</option>
-        <option>No</option>
-      </select>
-
-      <label>Tell us about your experience</label>
-      <textarea name="Experience Details" placeholder="Optional"></textarea>
-
-      <button class="btn" type="submit">Submit Application</button>
-    </form>
-  </div>
-</section>
-
-<section class="light" id="contact">
-  <div class="container">
-    <h2 class="section-title">Contact Us</h2>
-
-    <div class="card contact-card">
-      <h3>Buffalo Quick Lube</h3>
-
-      <p>
-        300 10th Ave S<br>
-        Buffalo, MN 55313
-      </p>
-
-      <p>Behind Speedway / Attached to Tires Plus</p>
-
-      <p>
-        <strong>Phone:</strong><br>
-        <a style="color:#9b5cff;" href="tel:7636826960">(763) 682-6960</a>
-      </p>
-
-      <div class="hours-box">
-        <h3>Business Hours</h3>
-        <p>
-          Monday–Friday: 8:00 AM – 6:00 PM<br>
-          Saturday: Closed<br>
-          Sunday: Closed
-        </p>
-      </div>
-
-      <br>
-
-      <a class="btn" href="tel:7636826960">Call Now</a>
-      <a class="btn secondary" href="https://www.google.com/maps/search/?api=1&query=300+10th+Ave+S+Buffalo+MN+55313" target="_blank">Get Directions</a>
     </div>
   </div>
 </section>
@@ -754,18 +91,6 @@
 </footer>
 
 <a class="floating-call" href="tel:7636826960">Call Buffalo Quick Lube</a>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-  }
-
-  document.querySelectorAll("nav a").forEach(link => {
-    link.addEventListener("click", () => {
-      document.getElementById("menu").classList.remove("active");
-    });
-  });
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
