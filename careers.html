@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | Buffalo Quick Lube</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+<header class="site-header"><div class="top-bar"><div class="top-bar-inner"><span>Join a practical, customer-focused shop</span><span><a href="tel:7636826960">763-682-6960</a></span></div></div><div class="nav-inner"><a class="brand" href="index.html"><img src="images/logo.png" alt="Buffalo Quick Lube logo"></a><button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu">Menu</button><nav class="site-nav" id="navMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="coupons.html">Coupons</a><a href="team.html">Team</a><a href="commercial.html">Commercial</a><a href="faq.html">FAQ</a><a class="active" href="careers.html">Careers</a><a href="social.html">Social</a><a href="contact.html">Contact</a></nav></div></header>
+<main>
+  <section class="page-hero"><div class="container"><div><p class="eyebrow">Careers</p><h1>Quick application</h1><p>Interested in joining the team? This is meant to be painless: a few basics, the best way to reach you, and anything else you want us to know.</p></div><a class="btn" href="tel:7636826960">Call the Shop</a></div></section>
+  <section class="section"><div class="container">
+    <div class="section-head">
+      <h2>Apply online</h2>
+      <p>Applications are sent directly to the Buffalo Quick Lube team.</p>
+    </div>
+    <form class="application-form" action="https://formsubmit.co/buffaloquicklube@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Buffalo Quick Lube Job Application">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none">
 
+      <div class="form-field">
+        <label for="first_name">First name</label>
+        <input id="first_name" name="First Name" type="text" autocomplete="given-name" required>
+      </div>
+
+      <div class="form-field">
+        <label for="last_name">Last name</label>
+        <input id="last_name" name="Last Name" type="text" autocomplete="family-name" required>
+      </div>
+
+      <div class="form-field">
+        <label for="position">Position interested in</label>
+        <select id="position" name="Position Interested In" required>
+          <option value="">Select one</option>
+          <option>Lube Technician</option>
+          <option>Service Writer</option>
+          <option>Both</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="best_time">Best time to contact</label>
+        <input id="best_time" name="Best Time To Contact" type="text" placeholder="Morning, afternoon, after 4 PM, etc." required>
+      </div>
+
+      <fieldset class="form-options">
+        <legend>Experience</legend>
+        <div class="choice-grid">
+          <label><input type="radio" name="Experience" value="Yes" required> Yes</label>
+          <label><input type="radio" name="Experience" value="No"> No</label>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-options">
+        <legend>Availability</legend>
+        <div class="choice-grid">
+          <label><input type="radio" name="Availability" value="Full time" required> Full time</label>
+          <label><input type="radio" name="Availability" value="Part time"> Part time</label>
+          <label><input type="radio" name="Availability" value="Either"> Either</label>
+        </div>
+      </fieldset>
+
+      <div class="form-field">
+        <label for="phone">Best contact phone</label>
+        <input id="phone" name="Phone" type="tel" autocomplete="tel" required>
+      </div>
+
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+
+      <div class="form-wide">
+        <label for="additional">Anything else?</label>
+        <textarea id="additional" name="Additional Information" placeholder="Tell us about your schedule, experience, or why you would be a good fit. Short and simple is completely fine."></textarea>
+      </div>
+
+      <p class="form-help">After submitting, you may see a quick confirmation step the first time this form is used.</p>
+      <div class="actions"><button class="btn" type="submit">Send Application</button></div>
+    </form>
+  </div></section>
+
+  <section class="section soft"><div class="container"><div class="section-head"><h2>What we look for</h2><p>A good attitude, reliability, attention to detail, and willingness to learn matter here.</p></div><div class="grid"><div class="card"><h3>Customer Focus</h3><p>Friendly communication and respect for each person who pulls in.</p></div><div class="card"><h3>Dependability</h3><p>Showing up, working together, and keeping the shop moving.</p></div><div class="card"><h3>Willingness To Learn</h3><p>Comfort around vehicles helps, but the right attitude matters too.</p></div></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-grid"><div><img src="images/logo.png" alt="Buffalo Quick Lube logo"><p>Clean. Honest. Fast.</p></div><div><h3>Hours</h3><p>Monday-Friday: 8:00 AM-6:00 PM</p><p>Saturday: Coming soon</p><p>Sunday: Closed</p></div><div><h3>Quick Links</h3><a href="services.html">Services</a><a href="team.html">Team</a><a href="contact.html">Contact</a></div></div><div class="footer-bottom">Copyright 2026 Buffalo Quick Lube. All rights reserved.</div></footer>
+<a class="floating-call" href="tel:7636826960">Call Now</a><script src="script.js"></script>
+</body>
+</html>
