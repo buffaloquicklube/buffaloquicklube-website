@@ -758,6 +758,15 @@ h1 {
     gap: 2px;
   }
 
+  .tips-photo {
+    aspect-ratio: 16 / 9;
+  }
+
+  .tips-photo img {
+    min-height: 0;
+    object-fit: cover;
+  }
+
   .floating-call {
     display: inline-flex;
   }
