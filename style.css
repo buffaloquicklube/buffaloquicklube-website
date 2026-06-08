@@ -487,7 +487,10 @@ h1 {
 }
 
 .page-hero {
-  background: var(--soft);
+  background:
+    radial-gradient(circle at 82% 18%, rgba(101, 51, 154, 0.4), transparent 34%),
+    linear-gradient(105deg, rgba(0, 0, 0, 0.96), rgba(18, 13, 22, 0.9)),
+    linear-gradient(135deg, #050405, #65339a);
   border-bottom: 2px solid var(--line);
   padding: 58px 0;
 }
