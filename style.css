@@ -433,6 +433,58 @@ h1 {
   margin-top: 0;
 }
 
+.service-heading {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 20px 0 0;
+  padding: 18px 20px;
+  border: 2px solid var(--purple);
+  border-left-width: 7px;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(101, 51, 154, 0.28), rgba(14, 10, 17, 0.96));
+}
+
+.service-heading:first-child {
+  margin-top: 0;
+}
+
+.service-heading h2 {
+  margin: 0 0 4px;
+  color: #ffffff;
+  font-size: 1.35rem;
+}
+
+.service-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.service-heading a {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 9px 14px;
+  border: 2px solid var(--purple);
+  border-radius: var(--radius);
+  background: var(--purple);
+  color: #ffffff;
+  font-size: 0.88rem;
+  font-weight: 900;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.service-heading a:hover {
+  background: var(--purple-dark);
+  border-color: var(--purple-dark);
+}
+
 .service-note {
   grid-column: 1 / -1;
   margin: -6px 0 0;
@@ -850,6 +902,16 @@ h1 {
   .section-photo img {
     min-height: 0;
     object-fit: cover;
+  }
+
+  .service-heading {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .service-heading a {
+    width: 100%;
   }
 
   .detail-photo {
