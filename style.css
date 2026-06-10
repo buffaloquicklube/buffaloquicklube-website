@@ -433,6 +433,17 @@ h1 {
   margin-top: 0;
 }
 
+.category-label-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.category-label-action .btn {
+  flex: 0 0 auto;
+}
+
 .service-heading {
   grid-column: 1 / -1;
   display: flex;
@@ -911,6 +922,15 @@ h1 {
   }
 
   .service-heading a {
+    width: 100%;
+  }
+
+  .category-label-action {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .category-label-action .btn {
     width: 100%;
   }
 
