@@ -260,6 +260,12 @@ h1 {
   color: var(--ink);
 }
 
+.btn.small {
+  min-height: 42px;
+  padding: 9px 14px;
+  font-size: 0.88rem;
+}
+
 .hero-panel {
   border: 2px solid var(--purple);
   border-radius: var(--radius);
@@ -399,6 +405,16 @@ h1 {
   color: #ffffff;
 }
 
+.featured-service {
+  grid-column: 1 / -1;
+  border-color: var(--purple);
+  background: linear-gradient(135deg, rgba(101, 51, 154, 0.28), var(--charcoal) 54%);
+}
+
+.featured-service .actions {
+  margin-top: 18px;
+}
+
 .category-label {
   grid-column: 1 / -1;
   margin: 18px 0 0;
@@ -415,6 +431,26 @@ h1 {
 
 .category-label:first-child {
   margin-top: 0;
+}
+
+.service-note {
+  grid-column: 1 / -1;
+  margin: -6px 0 0;
+  padding: 0 0 10px;
+  border-bottom: 2px solid rgba(101, 51, 154, 0.55);
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.service-note a {
+  color: #ffffff;
+  text-decoration-color: var(--purple);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.service-note a:hover {
+  color: var(--purple-light);
 }
 
 .photo-placeholder {
