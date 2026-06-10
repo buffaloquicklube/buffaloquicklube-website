@@ -301,6 +301,10 @@ h1 {
   background: var(--soft);
 }
 
+.detail-corner {
+  background: linear-gradient(135deg, rgba(101, 51, 154, 0.18), rgba(5, 4, 5, 0.92));
+}
+
 .section.dark {
   background: var(--ink);
   color: #fff;
@@ -346,6 +350,15 @@ h1 {
 .section-photo {
   margin: 0 0 28px;
   aspect-ratio: 16 / 7;
+}
+
+.detail-photo {
+  aspect-ratio: 4 / 3;
+}
+
+.detail-photo img {
+  min-height: 0;
+  object-fit: cover;
 }
 
 .dark .section-head p {
@@ -421,7 +434,7 @@ h1 {
 }
 
 .coupon-card::before {
-  content: "✂ cut here";
+  content: "\2702\FE0E  cut here";
   position: absolute;
   top: -15px;
   left: 18px;
@@ -758,16 +771,21 @@ h1 {
     gap: 2px;
   }
 
-  .tips-photo {
+  .section-photo {
     aspect-ratio: 16 / 9;
   }
 
-  .tips-photo img {
+  .section-photo img {
     min-height: 0;
     object-fit: cover;
+  }
+
+  .detail-photo {
+    aspect-ratio: 16 / 9;
   }
 
   .floating-call {
     display: inline-flex;
   }
 }
+
