@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 120px;
 }
 
 body {
@@ -597,6 +598,23 @@ h1 {
   color: var(--ink);
   font-size: 0.92rem;
   font-weight: 900;
+}
+
+.required-label {
+  color: var(--purple);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.conditional-other {
+  display: none;
+}
+
+.conditional-other.show {
+  display: grid;
 }
 
 .application-form input,
