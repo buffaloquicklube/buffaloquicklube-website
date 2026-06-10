@@ -398,6 +398,24 @@ h1 {
   color: #ffffff;
 }
 
+.category-label {
+  grid-column: 1 / -1;
+  margin: 18px 0 0;
+  padding: 10px 14px;
+  border-left: 6px solid var(--purple);
+  border-bottom: 2px solid var(--purple);
+  background: rgba(101, 51, 154, 0.16);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.category-label:first-child {
+  margin-top: 0;
+}
+
 .photo-placeholder {
   display: grid;
   place-items: center;
