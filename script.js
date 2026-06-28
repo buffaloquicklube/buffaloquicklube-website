@@ -105,6 +105,7 @@ function initializeDetailScheduling() {
   var grid = calendar.querySelector("[data-calendar-grid]");
   var previousButton = calendar.querySelector("[data-calendar-prev]");
   var nextButton = calendar.querySelector("[data-calendar-next]");
+  var calendarField = dateField.closest(".calendar-field");
   var monthFormatter = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" });
   var blockedDates = [
     // Add closed or fully booked dates here using YYYY-MM-DD, for example:
@@ -116,6 +117,14 @@ function initializeDetailScheduling() {
     var month = String(date.getMonth() + 1).padStart(2, "0");
     var day = String(date.getDate()).padStart(2, "0");
     return date.getFullYear() + "-" + month + "-" + day;
+  }
+
+  function openCalendar() {
+    calendarField.classList.add("open");
+  }
+
+  function closeCalendar() {
+    calendarField.classList.remove("open");
   }
 
   function renderCalendar() {
@@ -168,6 +177,7 @@ function initializeDetailScheduling() {
         selectedDate = event.currentTarget.dataset.date;
         dateField.value = selectedDate;
         dateField.setCustomValidity("");
+        closeCalendar();
         renderCalendar();
       });
 
@@ -185,9 +195,19 @@ function initializeDetailScheduling() {
     renderCalendar();
   });
 
+  dateField.addEventListener("focus", openCalendar);
+  dateField.addEventListener("click", openCalendar);
+
+  document.addEventListener("click", function (event) {
+    if (!calendarField.contains(event.target)) {
+      closeCalendar();
+    }
+  });
+
   dateField.addEventListener("invalid", function () {
     if (!dateField.value) {
       dateField.setCustomValidity("Please choose an available date from the calendar.");
+      openCalendar();
     }
   });
 
