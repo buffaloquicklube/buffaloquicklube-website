@@ -107,17 +107,20 @@ function initializeDetailScheduling() {
   var nextButton = calendar.querySelector("[data-calendar-next]");
   var calendarField = dateField.closest(".calendar-field");
   var monthFormatter = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" });
-  var blockedDates = [ "2026-07-03", 
-                      "2026-07-04",
-    // Add closed or fully booked dates here using YYYY-MM-DD, for example:
-    // "2026-07-04",
-    // "2026-12-25",
+  var blockedDates = [
+    // Add closed or fully booked dates here using YYYY-MM-DD.
+    "2026-07-03",
+    "2026-07-04",
   ];
 
-  function formatDateForField(date) {
+  function formatDateKey(date) {
     var month = String(date.getMonth() + 1).padStart(2, "0");
     var day = String(date.getDate()).padStart(2, "0");
     return date.getFullYear() + "-" + month + "-" + day;
+  }
+
+  function formatDateForField(date) {
+    return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
   }
 
   function openCalendar() {
@@ -146,27 +149,29 @@ function initializeDetailScheduling() {
       var button = document.createElement("button");
       var isSunday = date.getDay() === 0;
       var isPast = date < today;
-      var value = formatDateForField(date);
+      var value = formatDateKey(date);
+      var displayValue = formatDateForField(date);
       var isBlocked = blockedDates.indexOf(value) !== -1;
 
       button.type = "button";
       button.className = "calendar-day";
       button.textContent = day;
       button.dataset.date = value;
-      button.setAttribute("aria-label", value);
+      button.dataset.displayDate = displayValue;
+      button.setAttribute("aria-label", displayValue);
 
       if (isSunday) {
         button.classList.add("sunday");
         button.disabled = true;
-        button.setAttribute("aria-label", value + " unavailable, Sunday");
+        button.setAttribute("aria-label", displayValue + " unavailable, Sunday");
       } else if (isBlocked) {
         button.classList.add("blocked");
         button.disabled = true;
-        button.setAttribute("aria-label", value + " unavailable");
+        button.setAttribute("aria-label", displayValue + " unavailable");
       } else if (isPast) {
         button.classList.add("past");
         button.disabled = true;
-        button.setAttribute("aria-label", value + " unavailable, past date");
+        button.setAttribute("aria-label", displayValue + " unavailable, past date");
       }
 
       if (selectedDate === value) {
@@ -176,7 +181,7 @@ function initializeDetailScheduling() {
 
       button.addEventListener("click", function (event) {
         selectedDate = event.currentTarget.dataset.date;
-        dateField.value = selectedDate;
+        dateField.value = event.currentTarget.dataset.displayDate;
         dateField.setCustomValidity("");
         closeCalendar();
         renderCalendar();
