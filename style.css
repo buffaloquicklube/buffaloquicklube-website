@@ -863,14 +863,26 @@ h1 {
 }
 
 .calendar-field {
+  position: relative;
   gap: 10px;
 }
 
 .detail-calendar {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 18;
+  display: none;
   border: 2px solid var(--line);
   border-radius: var(--radius);
   background: #ffffff;
   padding: 12px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-field.open .detail-calendar {
+  display: block;
 }
 
 .calendar-top {
