@@ -107,7 +107,7 @@ function initializeDetailScheduling() {
   var nextButton = calendar.querySelector("[data-calendar-next]");
   var calendarField = dateField.closest(".calendar-field");
   var monthFormatter = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" });
-  var blockedDates = [
+  var blockedDates = [ 2026-07-03, 2026-07-04
     // Add closed or fully booked dates here using YYYY-MM-DD, for example:
     // "2026-07-04",
     // "2026-12-25",
