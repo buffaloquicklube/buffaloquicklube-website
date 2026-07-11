@@ -1237,6 +1237,11 @@ h1 {
     margin-right: 28px;
   }
 
+    .hero-main .eyebrow,
+  .hero-main h1 {
+    text-align: center;
+  }
+
   .actions {
     flex-direction: column;
   }
