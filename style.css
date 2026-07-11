@@ -177,10 +177,8 @@ a {
 .hero-inner {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
-  min-height: 650px;
   display: grid;
   grid-template-columns: 1fr;
-  align-items: stretch;
   gap: 24px;
   padding: 46px 0 58px;
 }
@@ -363,13 +361,16 @@ h1 {
 }
 
 .hero-panel dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
   margin: 18px 0 0;
 }
 
 .hero-panel div {
   display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 7px;
   padding: 13px 0;
   border-top: 2px solid var(--purple);
 }
@@ -1172,6 +1173,11 @@ h1 {
     min-height: auto;
   }
 
+  .hero-panel dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+  }
+
   .hero-main {
     min-height: 520px;
   }
@@ -1192,22 +1198,17 @@ h1 {
   }
 
   .hero-inner {
-    padding: 48px 0;
+    padding: 32px 0 36px;
   }
 
   .hero-main {
-    display: block;
-    min-height: auto;
-    padding: 0 0 28px;
+    min-height: 650px;
+    padding: 38px 28px 42px;
   }
 
   .hero-shop-photo {
-    position: relative;
-    inset: auto;
-    aspect-ratio: 16 / 7;
-    height: auto;
-    margin: 0 0 28px;
-    border-radius: 8px;
+    inset: 0;
+    height: 100%;
   }
 
   .hero-shop-photo img {
@@ -1215,20 +1216,20 @@ h1 {
   }
 
   .hero-main .hero-brand-mark {
-    position: absolute;
-    top: clamp(24px, 8vw, 34px);
-    left: 50%;
-    width: min(260px, 78%);
-    margin: 0;
-    transform: translateX(-50%);
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(270px, 100%);
+    margin: 0 auto 24px;
+    transform: none;
   }
 
   .hero-main .eyebrow,
   .hero-main h1,
   .hero-main > p,
   .hero-main .actions {
-    margin-left: 28px;
-    margin-right: 28px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .actions {
@@ -1242,6 +1243,10 @@ h1 {
   .hero-panel div {
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+
+  .hero-panel dl {
+    grid-template-columns: 1fr;
   }
 
   .section-photo {
