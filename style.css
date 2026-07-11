@@ -1198,17 +1198,22 @@ h1 {
   }
 
   .hero-inner {
-    padding: 32px 0 36px;
+    padding: 48px 0;
   }
 
   .hero-main {
-    min-height: 650px;
-    padding: 38px 28px 42px;
+    display: block;
+    min-height: auto;
+    padding: 0 0 28px;
   }
 
   .hero-shop-photo {
-    inset: 0;
-    height: 100%;
+    position: relative;
+    inset: auto;
+    aspect-ratio: 16 / 8;
+    height: auto;
+    margin: 0 0 28px;
+    border-radius: 8px;
   }
 
   .hero-shop-photo img {
@@ -1216,20 +1221,20 @@ h1 {
   }
 
   .hero-main .hero-brand-mark {
-    position: relative;
-    top: auto;
-    left: auto;
-    width: min(270px, 100%);
-    margin: 0 auto 24px;
-    transform: none;
+    position: absolute;
+    top: clamp(28px, 8vw, 38px);
+    left: 50%;
+    width: min(260px, 78%);
+    margin: 0;
+    transform: translateX(-50%);
   }
 
   .hero-main .eyebrow,
   .hero-main h1,
   .hero-main > p,
   .hero-main .actions {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: 28px;
+    margin-right: 28px;
   }
 
   .actions {
