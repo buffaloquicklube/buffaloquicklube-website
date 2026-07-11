@@ -179,9 +179,9 @@ a {
   margin: 0 auto;
   min-height: 650px;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) 380px;
+  grid-template-columns: 1fr;
   align-items: stretch;
-  gap: 48px;
+  gap: 24px;
   padding: 46px 0 58px;
 }
 
