@@ -87,31 +87,14 @@ function initializeOtherFields() {
 }
 
 function initializeDetailScheduling() {
-  var dateField = document.getElementById("preferred_date");
-  var calendar = document.querySelector("[data-detail-calendar]");
-
-  if (!dateField || !calendar || dateField.dataset.schedulingInitialized === "true") {
-    return;
-  }
-
-  dateField.dataset.schedulingInitialized = "true";
-
   var today = new Date();
   today.setHours(0, 0, 0, 0);
-
-  var visibleMonth = new Date(today.getFullYear(), today.getMonth(), 1);
-  var selectedDate = null;
-  var title = calendar.querySelector("[data-calendar-title]");
-  var grid = calendar.querySelector("[data-calendar-grid]");
-  var previousButton = calendar.querySelector("[data-calendar-prev]");
-  var nextButton = calendar.querySelector("[data-calendar-next]");
-  var calendarField = dateField.closest(".calendar-field");
-  var monthFormatter = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" });
   var blockedDates = [
     // Add closed or fully booked dates here using YYYY-MM-DD.
     "2026-07-03",
     "2026-07-04",
   ];
+  var monthFormatter = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" });
 
   function formatDateKey(date) {
     var month = String(date.getMonth() + 1).padStart(2, "0");
@@ -123,105 +106,132 @@ function initializeDetailScheduling() {
     return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
   }
 
-  function openCalendar() {
-    calendarField.classList.add("open");
-  }
+  document.querySelectorAll(".calendar-field").forEach(function (calendarField) {
+    var dateField = calendarField.querySelector("input[readonly]");
+    var calendar = calendarField.querySelector("[data-detail-calendar]");
 
-  function closeCalendar() {
-    calendarField.classList.remove("open");
-  }
-
-  function renderCalendar() {
-    grid.innerHTML = "";
-    title.textContent = monthFormatter.format(visibleMonth);
-
-    var firstDay = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth(), 1);
-    var daysInMonth = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth() + 1, 0).getDate();
-
-    for (var emptyDay = 0; emptyDay < firstDay.getDay(); emptyDay += 1) {
-      var spacer = document.createElement("span");
-      spacer.className = "calendar-day empty";
-      grid.appendChild(spacer);
+    if (!dateField || !calendar || dateField.dataset.schedulingInitialized === "true") {
+      return;
     }
 
-    for (var day = 1; day <= daysInMonth; day += 1) {
-      var date = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth(), day);
-      var button = document.createElement("button");
-      var isSunday = date.getDay() === 0;
-      var isPast = date < today;
-      var value = formatDateKey(date);
-      var displayValue = formatDateForField(date);
-      var isBlocked = blockedDates.indexOf(value) !== -1;
+    dateField.dataset.schedulingInitialized = "true";
 
-      button.type = "button";
-      button.className = "calendar-day";
-      button.textContent = day;
-      button.dataset.date = value;
-      button.dataset.displayDate = displayValue;
-      button.setAttribute("aria-label", displayValue);
+    var visibleMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+    var selectedDate = null;
+    var title = calendar.querySelector("[data-calendar-title]");
+    var grid = calendar.querySelector("[data-calendar-grid]");
+    var previousButton = calendar.querySelector("[data-calendar-prev]");
+    var nextButton = calendar.querySelector("[data-calendar-next]");
 
-      if (isSunday) {
-        button.classList.add("sunday");
-        button.disabled = true;
-        button.setAttribute("aria-label", displayValue + " unavailable, Sunday");
-      } else if (isBlocked) {
-        button.classList.add("blocked");
-        button.disabled = true;
-        button.setAttribute("aria-label", displayValue + " unavailable");
-      } else if (isPast) {
-        button.classList.add("past");
-        button.disabled = true;
-        button.setAttribute("aria-label", displayValue + " unavailable, past date");
-      }
+    if (!title || !grid || !previousButton || !nextButton) {
+      return;
+    }
 
-      if (selectedDate === value) {
-        button.classList.add("selected");
-        button.setAttribute("aria-pressed", "true");
-      }
-
-      button.addEventListener("click", function (event) {
-        selectedDate = event.currentTarget.dataset.date;
-        dateField.value = event.currentTarget.dataset.displayDate;
-        dateField.setCustomValidity("");
-        closeCalendar();
-        renderCalendar();
+    function openCalendar() {
+      document.querySelectorAll(".calendar-field.open").forEach(function (openField) {
+        if (openField !== calendarField) {
+          openField.classList.remove("open");
+        }
       });
-
-      grid.appendChild(button);
+      calendarField.classList.add("open");
     }
-  }
 
-  previousButton.addEventListener("click", function () {
-    visibleMonth = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth() - 1, 1);
+    function closeCalendar() {
+      calendarField.classList.remove("open");
+    }
+
+    function renderCalendar() {
+      grid.innerHTML = "";
+      title.textContent = monthFormatter.format(visibleMonth);
+
+      var firstDay = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth(), 1);
+      var daysInMonth = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth() + 1, 0).getDate();
+
+      for (var emptyDay = 0; emptyDay < firstDay.getDay(); emptyDay += 1) {
+        var spacer = document.createElement("span");
+        spacer.className = "calendar-day empty";
+        grid.appendChild(spacer);
+      }
+
+      for (var day = 1; day <= daysInMonth; day += 1) {
+        var date = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth(), day);
+        var button = document.createElement("button");
+        var isSunday = date.getDay() === 0;
+        var isPast = date < today;
+        var value = formatDateKey(date);
+        var displayValue = formatDateForField(date);
+        var isBlocked = blockedDates.indexOf(value) !== -1;
+
+        button.type = "button";
+        button.className = "calendar-day";
+        button.textContent = day;
+        button.dataset.date = value;
+        button.dataset.displayDate = displayValue;
+        button.setAttribute("aria-label", displayValue);
+
+        if (isSunday) {
+          button.classList.add("sunday");
+          button.disabled = true;
+          button.setAttribute("aria-label", displayValue + " unavailable, Sunday");
+        } else if (isBlocked) {
+          button.classList.add("blocked");
+          button.disabled = true;
+          button.setAttribute("aria-label", displayValue + " unavailable");
+        } else if (isPast) {
+          button.classList.add("past");
+          button.disabled = true;
+          button.setAttribute("aria-label", displayValue + " unavailable, past date");
+        }
+
+        if (selectedDate === value) {
+          button.classList.add("selected");
+          button.setAttribute("aria-pressed", "true");
+        }
+
+        button.addEventListener("click", function (event) {
+          selectedDate = event.currentTarget.dataset.date;
+          dateField.value = event.currentTarget.dataset.displayDate;
+          dateField.setCustomValidity("");
+          closeCalendar();
+          renderCalendar();
+        });
+
+        grid.appendChild(button);
+      }
+    }
+
+    previousButton.addEventListener("click", function () {
+      visibleMonth = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth() - 1, 1);
+      renderCalendar();
+    });
+
+    nextButton.addEventListener("click", function () {
+      visibleMonth = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth() + 1, 1);
+      renderCalendar();
+    });
+
+    dateField.addEventListener("focus", openCalendar);
+    dateField.addEventListener("click", openCalendar);
+
+    document.addEventListener("click", function (event) {
+      if (!calendarField.contains(event.target)) {
+        closeCalendar();
+      }
+    });
+
+    dateField.addEventListener("invalid", function () {
+      if (!dateField.value && dateField.required) {
+        dateField.setCustomValidity("Please choose an available date from the calendar.");
+        openCalendar();
+      }
+    });
+
+    dateField.addEventListener("input", function () {
+      dateField.setCustomValidity("");
+    });
+
     renderCalendar();
   });
-
-  nextButton.addEventListener("click", function () {
-    visibleMonth = new Date(visibleMonth.getFullYear(), visibleMonth.getMonth() + 1, 1);
-    renderCalendar();
-  });
-
-  dateField.addEventListener("focus", openCalendar);
-  dateField.addEventListener("click", openCalendar);
-
-  document.addEventListener("click", function (event) {
-    if (!calendarField.contains(event.target)) {
-      closeCalendar();
-    }
-  });
-
-  dateField.addEventListener("invalid", function () {
-    if (!dateField.value) {
-      dateField.setCustomValidity("Please choose an available date from the calendar.");
-      openCalendar();
-    }
-  });
-
-  dateField.addEventListener("input", function () {
-    dateField.setCustomValidity("");
-  });
-
-  renderCalendar();
 }
 
 function initializeVehicleSelectors() {
