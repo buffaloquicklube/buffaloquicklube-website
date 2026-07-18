@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=61">
+  <link rel="stylesheet" href="style.css?v=68">
 </head>
 <body>
 <header class="site-header"><div class="top-bar"><div class="top-bar-inner"><span>Interior details are available by appointment</span><span><a href="tel:7636826960">763-682-6960</a></span></div></div><div class="nav-inner"><a class="brand" href="index.html"><img src="images/logo.png" alt="Buffalo Quick Lube logo"></a><button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button><nav class="site-nav" id="navMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="coupons.html">Coupons</a><a href="commercial.html">Commercial</a><a href="team.html">Team</a><a href="careers.html">Careers</a><a href="social.html">Social</a><a href="tips.html">Tips</a><a href="faq.html">FAQ</a><div class="nav-dropdown"><a class="active nav-trigger" href="contact.html">Contact</a><div class="nav-dropdown-menu"><a href="contact.html">Contact Information</a><a href="detail-request.html">Interior Detail Scheduling</a></div></div></nav></div></header>
@@ -62,6 +62,40 @@
       <div class="form-field">
         <label for="dropoff_time">Drop-Off Time <span class="required-label" aria-label="required">* Required</span></label>
         <select id="dropoff_time" name="Drop-Off Time" required>
+          <option value="">Select one</option>
+          <option>8:00 AM</option>
+          <option>9:00 AM</option>
+          <option>10:00 AM</option>
+          <option>11:00 AM</option>
+          <option>12:00 PM</option>
+          <option>1:00 PM</option>
+          <option>2:00 PM</option>
+          <option>3:00 PM</option>
+          <option>4:00 PM</option>
+          <option>5:00 PM</option>
+          <option>6:00 PM</option>
+        </select>
+      </div>
+
+      <div class="form-field calendar-field">
+        <label for="alternative_date">Alternative Date</label>
+        <input id="alternative_date" name="Alternative Date" type="text" placeholder="Select a backup date" readonly>
+        <div class="detail-calendar" data-detail-calendar aria-label="Alternative detail date calendar">
+          <div class="calendar-top">
+            <button type="button" class="calendar-nav" data-calendar-prev aria-label="Previous month">&lt;</button>
+            <div class="calendar-title" data-calendar-title></div>
+            <button type="button" class="calendar-nav" data-calendar-next aria-label="Next month">&gt;</button>
+          </div>
+          <div class="calendar-weekdays" aria-hidden="true">
+            <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+          </div>
+          <div class="calendar-grid" data-calendar-grid></div>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="alternative_dropoff_time">Alternative Drop-Off Time</label>
+        <select id="alternative_dropoff_time" name="Alternative Drop-Off Time">
           <option value="">Select one</option>
           <option>8:00 AM</option>
           <option>9:00 AM</option>
@@ -129,6 +163,6 @@
   </div></section>
 </main>
 <footer class="site-footer"><div class="footer-grid"><div><img src="images/logo.png" alt="Buffalo Quick Lube logo"><p>Clean. Honest. Fast.</p></div><div><h3>Hours</h3><p>Monday-Friday: 8:00 AM - 7:00 PM</p><p>Saturday: 8:00 AM - 4:00 PM</p><p>Sunday: Closed</p></div><div><h3>Quick Links</h3><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="contact.html">Contact</a></div></div><div class="footer-bottom">Copyright &copy; 2026 Buffalo Quick Lube. All rights reserved.</div></footer>
-<a class="floating-call" href="tel:7636826960">Call Now</a><script src="script.js?v=61"></script>
+<a class="floating-call" href="tel:7636826960">Call Now</a><script src="script.js?v=68"></script>
 </body>
 </html>
