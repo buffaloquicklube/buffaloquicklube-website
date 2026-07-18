@@ -753,6 +753,19 @@ h1 {
   color: var(--muted);
 }
 
+.oil-stock-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
+  margin: 14px 0 0;
+  padding-left: 20px;
+  color: #ffffff;
+}
+
+.oil-stock-list li {
+  padding-left: 2px;
+}
+
 .application-form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1237,7 +1250,7 @@ h1 {
     margin-right: 28px;
   }
 
-    .hero-main .eyebrow,
+  .hero-main .eyebrow,
   .hero-main h1 {
     text-align: center;
   }
@@ -1256,6 +1269,10 @@ h1 {
   }
 
   .hero-panel dl {
+    grid-template-columns: 1fr;
+  }
+
+  .oil-stock-list {
     grid-template-columns: 1fr;
   }
 
