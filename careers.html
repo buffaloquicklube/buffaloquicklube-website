@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=61">
+  <link rel="stylesheet" href="style.css?v=68">
 </head>
 <body>
 <header class="site-header"><div class="top-bar"><div class="top-bar-inner"><span>Join a practical, customer-focused shop</span><span><a href="tel:7636826960">763-682-6960</a></span></div></div><div class="nav-inner"><a class="brand" href="index.html"><img src="images/logo.png" alt="Buffalo Quick Lube logo"></a><button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button><nav class="site-nav" id="navMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a><a href="coupons.html">Coupons</a><a href="commercial.html">Commercial</a><a href="team.html">Team</a><a class="active" href="careers.html">Careers</a><a href="social.html">Social</a><a href="tips.html">Tips</a><a href="faq.html">FAQ</a><div class="nav-dropdown"><a class="nav-trigger" href="contact.html">Contact</a><div class="nav-dropdown-menu"><a href="contact.html">Contact Information</a><a href="detail-request.html">Interior Detail Scheduling</a></div></div></nav></div></header>
@@ -85,6 +85,146 @@
         <input id="email" name="email" type="email" autocomplete="email" required>
       </div>
 
+      <fieldset class="form-options form-repeat-section">
+        <legend>References</legend>
+        <div class="repeat-list">
+          <div class="repeat-row">
+            <div class="form-field">
+              <label for="reference_1_name">Reference 1 Name</label>
+              <input id="reference_1_name" name="Reference 1 Name" type="text">
+            </div>
+            <div class="form-field">
+              <label for="reference_1_phone">Reference 1 Phone</label>
+              <input id="reference_1_phone" name="Reference 1 Phone" type="tel">
+            </div>
+            <div class="form-field">
+              <label for="reference_1_relationship">Reference 1 Relationship</label>
+              <input id="reference_1_relationship" name="Reference 1 Relationship" type="text" placeholder="Former manager, coworker, etc.">
+            </div>
+          </div>
+
+          <div class="repeat-row">
+            <div class="form-field">
+              <label for="reference_2_name">Reference 2 Name</label>
+              <input id="reference_2_name" name="Reference 2 Name" type="text">
+            </div>
+            <div class="form-field">
+              <label for="reference_2_phone">Reference 2 Phone</label>
+              <input id="reference_2_phone" name="Reference 2 Phone" type="tel">
+            </div>
+            <div class="form-field">
+              <label for="reference_2_relationship">Reference 2 Relationship</label>
+              <input id="reference_2_relationship" name="Reference 2 Relationship" type="text" placeholder="Former manager, coworker, etc.">
+            </div>
+          </div>
+        </div>
+
+        <details class="form-more">
+          <summary>Add more references</summary>
+          <div class="repeat-list">
+            <div class="repeat-row">
+              <div class="form-field">
+                <label for="reference_3_name">Reference 3 Name</label>
+                <input id="reference_3_name" name="Reference 3 Name" type="text">
+              </div>
+              <div class="form-field">
+                <label for="reference_3_phone">Reference 3 Phone</label>
+                <input id="reference_3_phone" name="Reference 3 Phone" type="tel">
+              </div>
+              <div class="form-field">
+                <label for="reference_3_relationship">Reference 3 Relationship</label>
+                <input id="reference_3_relationship" name="Reference 3 Relationship" type="text" placeholder="Former manager, coworker, etc.">
+              </div>
+            </div>
+
+            <div class="repeat-row">
+              <div class="form-field">
+                <label for="reference_4_name">Reference 4 Name</label>
+                <input id="reference_4_name" name="Reference 4 Name" type="text">
+              </div>
+              <div class="form-field">
+                <label for="reference_4_phone">Reference 4 Phone</label>
+                <input id="reference_4_phone" name="Reference 4 Phone" type="tel">
+              </div>
+              <div class="form-field">
+                <label for="reference_4_relationship">Reference 4 Relationship</label>
+                <input id="reference_4_relationship" name="Reference 4 Relationship" type="text" placeholder="Former manager, coworker, etc.">
+              </div>
+            </div>
+          </div>
+        </details>
+      </fieldset>
+
+      <fieldset class="form-options form-repeat-section">
+        <legend>Previous Employment</legend>
+        <div class="repeat-list">
+          <div class="repeat-row">
+            <div class="form-field">
+              <label for="employment_1_company">Previous Employer 1</label>
+              <input id="employment_1_company" name="Previous Employer 1" type="text" placeholder="Company name">
+            </div>
+            <div class="form-field">
+              <label for="employment_1_position">Position</label>
+              <input id="employment_1_position" name="Previous Employer 1 Position" type="text">
+            </div>
+            <div class="form-field">
+              <label for="employment_1_dates">Dates Worked</label>
+              <input id="employment_1_dates" name="Previous Employer 1 Dates Worked" type="text" placeholder="Example: 2023-2025">
+            </div>
+          </div>
+
+          <div class="repeat-row">
+            <div class="form-field">
+              <label for="employment_2_company">Previous Employer 2</label>
+              <input id="employment_2_company" name="Previous Employer 2" type="text" placeholder="Company name">
+            </div>
+            <div class="form-field">
+              <label for="employment_2_position">Position</label>
+              <input id="employment_2_position" name="Previous Employer 2 Position" type="text">
+            </div>
+            <div class="form-field">
+              <label for="employment_2_dates">Dates Worked</label>
+              <input id="employment_2_dates" name="Previous Employer 2 Dates Worked" type="text" placeholder="Example: 2021-2023">
+            </div>
+          </div>
+        </div>
+
+        <details class="form-more">
+          <summary>Add more previous employment</summary>
+          <div class="repeat-list">
+            <div class="repeat-row">
+              <div class="form-field">
+                <label for="employment_3_company">Previous Employer 3</label>
+                <input id="employment_3_company" name="Previous Employer 3" type="text" placeholder="Company name">
+              </div>
+              <div class="form-field">
+                <label for="employment_3_position">Position</label>
+                <input id="employment_3_position" name="Previous Employer 3 Position" type="text">
+              </div>
+              <div class="form-field">
+                <label for="employment_3_dates">Dates Worked</label>
+                <input id="employment_3_dates" name="Previous Employer 3 Dates Worked" type="text" placeholder="Example: 2020-2021">
+              </div>
+            </div>
+
+            <div class="repeat-row">
+              <div class="form-field">
+                <label for="employment_4_company">Previous Employer 4</label>
+                <input id="employment_4_company" name="Previous Employer 4" type="text" placeholder="Company name">
+              </div>
+              <div class="form-field">
+                <label for="employment_4_position">Position</label>
+                <input id="employment_4_position" name="Previous Employer 4 Position" type="text">
+              </div>
+              <div class="form-field">
+                <label for="employment_4_dates">Dates Worked</label>
+                <input id="employment_4_dates" name="Previous Employer 4 Dates Worked" type="text" placeholder="Example: 2018-2020">
+              </div>
+            </div>
+          </div>
+        </details>
+      </fieldset>
+
       <div class="form-wide">
         <label for="additional">Anything else?</label>
         <textarea id="additional" name="Additional Information" placeholder="Tell us about your schedule, experience, or why you would be a good fit. Short and simple is completely fine."></textarea>
@@ -97,10 +237,9 @@
   <section class="section soft"><div class="container"><div class="section-head"><h2>What We Look For</h2><p>A good attitude, reliability, attention to detail, and willingness to learn matter here.</p></div><div class="grid"><div class="card"><h3>Customer Focus</h3><p>Friendly communication and respect for each person who pulls in.</p></div><div class="card"><h3>Dependability</h3><p>Showing up, working together, and keeping the shop moving.</p></div><div class="card"><h3>Willingness To Learn</h3><p>Comfort around vehicles helps, but the right attitude matters too.</p></div></div></div></section>
 </main>
 <footer class="site-footer"><div class="footer-grid"><div><img src="images/logo.png" alt="Buffalo Quick Lube logo"><p>Clean. Honest. Fast.</p></div><div><h3>Hours</h3><p>Monday-Friday: 8:00 AM - 7:00 PM</p><p>Saturday: 8:00 AM - 4:00 PM</p><p>Sunday: Closed</p></div><div><h3>Quick Links</h3><a href="services.html">Services</a><a href="team.html">Team</a><a href="contact.html">Contact</a></div></div><div class="footer-bottom">Copyright &copy; 2026 Buffalo Quick Lube. All rights reserved.</div></footer>
-<a class="floating-call" href="tel:7636826960">Call Now</a><script src="script.js?v=61"></script>
+<a class="floating-call" href="tel:7636826960">Call Now</a><script src="script.js?v=63"></script>
 </body>
 </html>
-
 
 
 
