@@ -1,8 +1,88 @@
 function toggleMenu() {
   var menu = document.getElementById("navMenu");
+  var button = document.querySelector(".menu-btn");
   if (menu) {
     menu.classList.toggle("show");
+    if (button) button.setAttribute("aria-expanded", menu.classList.contains("show") ? "true" : "false");
   }
+}
+
+function initializeMapLinks() {
+  var isAppleMobile = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (!isAppleMobile) return;
+
+  document.querySelectorAll('a[href*="google.com/maps/search/"][href*="300+10th+Ave+S+Buffalo+MN+55313"]').forEach(function (link) {
+    link.href = "https://maps.apple.com/?q=Buffalo%20Quick%20Lube&address=300%2010th%20Ave%20S%2C%20Buffalo%2C%20MN%2055313";
+  });
+}
+
+function initializeServicesNavigation() {
+  document.querySelectorAll('.site-nav > a[href="services.html"]').forEach(function (servicesLink) {
+    if (servicesLink.parentElement.classList.contains("nav-dropdown")) return;
+
+    var dropdown = document.createElement("div");
+    dropdown.className = "nav-dropdown services-dropdown";
+    var trigger = servicesLink.cloneNode(true);
+    trigger.classList.add("nav-trigger");
+    trigger.textContent = "Services";
+    trigger.setAttribute("aria-haspopup", "true");
+    trigger.setAttribute("aria-expanded", "false");
+
+    var submenu = document.createElement("div");
+    submenu.className = "nav-dropdown-menu";
+    submenu.innerHTML = '<a href="services.html">What We Do</a><a href="detail-request.html">Interior Detail Scheduling</a>';
+
+    if (window.location.pathname.toLowerCase().endsWith("service-intervals.html")) {
+      trigger.classList.add("active");
+      servicesLink.classList.remove("active");
+    }
+    servicesLink.replaceWith(dropdown);
+    dropdown.appendChild(trigger);
+    dropdown.appendChild(submenu);
+  });
+}
+
+function initializeMoreNavigation() {
+  document.querySelectorAll(".site-nav").forEach(function (nav) {
+    if (nav.querySelector(".more-dropdown")) return;
+
+    var moreHrefs = ["team.html", "careers.html", "tips.html", "faq.html", "social.html"];
+    var links = moreHrefs.map(function (href) { return nav.querySelector(':scope > a[href="' + href + '"]'); }).filter(Boolean);
+    if (!links.length) return;
+
+    var dropdown = document.createElement("div");
+    dropdown.className = "nav-dropdown more-dropdown";
+    var trigger = document.createElement("button");
+    trigger.type = "button";
+    trigger.className = "nav-trigger nav-more-trigger";
+    trigger.textContent = "More";
+    trigger.setAttribute("aria-haspopup", "true");
+    trigger.setAttribute("aria-expanded", "false");
+
+    var submenu = document.createElement("div");
+    submenu.className = "nav-dropdown-menu";
+    links.forEach(function (link) {
+      if (link.classList.contains("active")) trigger.classList.add("active");
+      submenu.appendChild(link);
+    });
+
+    dropdown.appendChild(trigger);
+    dropdown.appendChild(submenu);
+    nav.appendChild(dropdown);
+  });
+}
+
+function initializeContactNavigation() {
+  document.querySelectorAll('.site-nav > .nav-dropdown').forEach(function (dropdown) {
+    var contactTrigger = dropdown.querySelector(':scope > .nav-trigger[href="contact.html"]');
+    if (!contactTrigger) return;
+    var contactLink = contactTrigger.cloneNode(true);
+    contactLink.classList.remove("nav-trigger");
+    contactLink.removeAttribute("aria-haspopup");
+    contactLink.removeAttribute("aria-expanded");
+    dropdown.replaceWith(contactLink);
+  });
 }
 
 document.addEventListener("click", function (event) {
@@ -34,6 +114,16 @@ function initializeNavDropdowns() {
     dropdown.dataset.dropdownInitialized = "true";
 
     trigger.addEventListener("click", function (event) {
+      if (trigger.tagName === "BUTTON") {
+        event.preventDefault();
+        var willOpen = !dropdown.classList.contains("open");
+        document.querySelectorAll(".nav-dropdown.open").forEach(function (openDropdown) {
+          if (openDropdown !== dropdown) openDropdown.classList.remove("open");
+        });
+        dropdown.classList.toggle("open", willOpen);
+        trigger.setAttribute("aria-expanded", willOpen ? "true" : "false");
+        return;
+      }
       if (!dropdown.classList.contains("open")) {
         event.preventDefault();
         document.querySelectorAll(".nav-dropdown.open").forEach(function (openDropdown) {
@@ -42,15 +132,24 @@ function initializeNavDropdowns() {
           }
         });
         dropdown.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
       }
     });
   });
 }
 
+initializeMapLinks();
+initializeServicesNavigation();
+initializeContactNavigation();
+initializeMoreNavigation();
+initializeNavDropdowns();
+
 document.addEventListener("click", function (event) {
   document.querySelectorAll(".nav-dropdown.open").forEach(function (dropdown) {
     if (!dropdown.contains(event.target)) {
       dropdown.classList.remove("open");
+      var trigger = dropdown.querySelector(".nav-trigger");
+      if (trigger) trigger.setAttribute("aria-expanded", "false");
     }
   });
 });
@@ -241,11 +340,9 @@ function initializeVehicleSelectors() {
   var modelInput = document.getElementById("vehicle_model");
   var modelList = document.getElementById("vehicle_model_options");
 
-  if (!yearList || !makeInput || !makeList || !modelInput || !modelList || makeInput.dataset.vehicleInitialized === "true") {
+  if (makeInput && makeInput.dataset.vehicleInitialized === "true") {
     return;
   }
-
-  makeInput.dataset.vehicleInitialized = "true";
 
   var vehicleModels = {
     Acura: ["ILX", "Integra", "MDX", "RDX", "RLX", "TL", "TLX", "TSX"],
@@ -280,6 +377,16 @@ function initializeVehicleSelectors() {
   };
   var extraMakes = ["Alfa Romeo", "Fiat", "Hummer", "Jaguar", "Land Rover", "Lucid", "Maserati", "Mercury", "Oldsmobile", "Polestar", "Pontiac", "Porsche", "Rivian", "Saab", "Saturn", "Scion", "Smart", "Suzuki"];
   var fallbackModels = ["Coupe", "Hatchback", "Sedan", "Convertible", "Wagon", "Crossover", "SUV", "Minivan", "Cargo Van", "Passenger Van", "Pickup", "Box Truck"];
+
+  // Shared with the maintenance lookup so its core catalog works offline.
+  window.BQL_VEHICLE_MODELS = vehicleModels;
+  window.BQL_EXTRA_MAKES = extraMakes;
+
+  if (!yearList || !makeInput || !makeList || !modelInput || !modelList) {
+    return;
+  }
+
+  makeInput.dataset.vehicleInitialized = "true";
 
   var currentYear = new Date().getFullYear() + 1;
   var years = [];

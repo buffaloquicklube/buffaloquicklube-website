@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
   <link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -10,17 +13,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=63">
+  <link rel="stylesheet" href="style.css?v=72">
 </head>
 <body>
-<header class="site-header"><div class="top-bar"><div class="top-bar-inner"><span>Clear pricing before service begins</span><span><a href="tel:7636826960">763-682-6960</a></span></div></div><div class="nav-inner"><a class="brand" href="index.html"><img src="images/logo.png" alt="Buffalo Quick Lube logo"></a><button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button><nav class="site-nav" id="navMenu"><a href="index.html">Home</a><a href="services.html">Services</a><a class="active" href="pricing.html">Pricing</a><a href="coupons.html">Coupons</a><a href="commercial.html">Commercial</a><a href="team.html">Team</a><a href="careers.html">Careers</a><a href="social.html">Social</a><a href="tips.html">Tips</a><a href="faq.html">FAQ</a><div class="nav-dropdown"><a class="nav-trigger" href="contact.html">Contact</a><div class="nav-dropdown-menu"><a href="contact.html">Contact Information</a><a href="detail-request.html">Interior Detail Scheduling</a></div></div></nav></div></header>
+<header class="site-header">
+  <div class="top-bar"><div class="top-bar-inner"><span>Clean • Honest • Fast</span><span><a href="tel:7636826960">763-682-6960</a> | <a href="https://www.google.com/maps/search/?api=1&amp;query=300+10th+Ave+S+Buffalo+MN+55313" target="_blank" rel="noreferrer">300 10th Ave S, Buffalo, MN 55313</a></span></div></div>
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><img src="images/logo.png" alt="Buffalo Quick Lube logo"></a>
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="site-nav" id="navMenu">
+      <a class="nav-home" href="index.html">Home</a>
+      <div class="nav-dropdown services-dropdown"><a class="nav-trigger" href="services.html" aria-haspopup="true" aria-expanded="false">Services</a><div class="nav-dropdown-menu"><a class="" href="services.html">What We Do</a><a class="" href="detail-request.html">Interior Detail Scheduling</a></div></div>
+      <a class="active" href="pricing.html">Pricing</a>
+      <a class="" href="coupons.html">Coupons</a>
+      <a class="" href="commercial.html">Commercial</a>
+      <a class="" href="contact.html">Contact</a>
+      <div class="nav-dropdown more-dropdown"><button class="nav-trigger nav-more-trigger" type="button" aria-haspopup="true" aria-expanded="false">More</button><div class="nav-dropdown-menu"><a class="" href="team.html">Team</a><a class="" href="careers.html">Careers</a><a class="" href="tips.html">Tips</a><a class="" href="faq.html">FAQ</a><a class="" href="social.html">Social</a></div></div>
+    </nav>
+  </div>
+</header>
 <main>
   <section class="page-hero"><div class="container"><div><p class="eyebrow">What to expect</p><h1>Pricing</h1><p>Final pricing can vary by oil type, oil quantity, filter type, and vehicle requirements. We will explain your options before work begins.</p></div><a class="btn" href="tel:7636826960">Ask About Pricing</a></div></section>
   <section class="section"><div class="container"><div class="grid">
     <div class="category-label" id="oil-changes">Oil Changes</div>
-    <div class="card"><h3>Semi Synthetic Oil Change</h3><p>Common choice for many vehicles.</p><div class="price">Starting at $55<small>Oil type and filter can affect final pricing.</small></div></div>
-    <div class="card"><h3>Full Synthetic Oil Change</h3><p>Recommended or required for many newer vehicles and high-performance engines.</p><div class="price">Starting at $68<small>Oil type and filter can affect final pricing.</small></div></div>
-    <div class="card"><h3>Diesel Oil Change</h3><p>Available for qualifying diesel vehicles.</p><div class="price">Starting at $75<small>Oil quantity, oil type, and filter can affect final pricing.</small></div></div>
+    <div class="card"><h3>Semi-Synthetic Blend Oil Change</h3><p>Starting price is based on 5 quarts of semi-synthetic blend motor oil and a standard oil filter.</p><div class="price">Starting at $59.99<small>Pricing may vary based on oil quantity and filter requirements.</small></div></div>
+    <div class="card"><h3>Full Synthetic Oil Change</h3><p>Starting price is based on 5 quarts of full synthetic motor oil and a standard oil filter.</p><div class="price">Starting at $69.99<small>Pricing may vary based on oil quantity, oil type, and filter requirements.</small></div></div>
+    <div class="card"><h3>Diesel Oil Change</h3><p>Starting price is based on 10 quarts of diesel motor oil and a standard oil filter.</p><div class="price">Starting at $99.99<small>Pricing may vary based on oil quantity, oil type, and filter requirements.</small></div></div>
     <div class="card"><h3>High Mileage Treatment</h3><p>Can be added to any oil type.</p><div class="price">$15</div></div>
     <div class="category-label category-label-action" id="interior-details"><span>Interior Details</span><a class="btn light small" href="detail-request.html">Request Appointment</a></div>
     <div class="card"><h3>Interior Detail</h3><p>By appointment only. Sedans, regular or extended cab pickups, and mid-size SUVs.</p><div class="price">$149.99</div></div>
@@ -37,10 +55,9 @@
   </div></div></section>
 </main>
 <footer class="site-footer"><div class="footer-grid"><div><img src="images/logo.png" alt="Buffalo Quick Lube logo"><p>Clean. Honest. Fast.</p></div><div><h3>Hours</h3><p>Monday-Friday: 8:00 AM - 7:00 PM</p><p>Saturday: 8:00 AM - 4:00 PM</p><p>Sunday: Closed</p></div><div><h3>Quick Links</h3><a href="services.html">Services</a><a href="coupons.html">Coupons</a><a href="contact.html">Contact</a></div></div><div class="footer-bottom">Copyright &copy; 2026 Buffalo Quick Lube. All rights reserved.</div></footer>
-<a class="floating-call" href="tel:7636826960">Call Now</a><script src="script.js?v=63"></script>
+<a class="floating-call" href="tel:7636826960">Call Now</a><script src="script.js?v=73"></script>
 </body>
 </html>
-
 
 
 
