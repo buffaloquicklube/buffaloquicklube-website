@@ -14,6 +14,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=72">
+<style>
+.battery-section{padding:24px 0 52px;background:#140d20}
+.battery-banner{display:grid;grid-template-columns:270px 1fr auto;gap:36px;align-items:center;border:1px solid #49305f;border-left:7px solid #7137a8;border-radius:18px;padding:32px 36px;background:#191122;box-shadow:0 12px 30px #00000020}
+.battery-logo{width:240px;height:auto;display:block;background:#fff;border-radius:12px;padding:18px;box-sizing:border-box}
+.battery-copy h2{font-size:29px;line-height:1.2;margin:0 0 10px;color:#fff}
+.battery-copy p{margin:0;color:#d1c8db;line-height:1.6;font-size:16px}
+.battery-banner .btn{white-space:nowrap;background:#7137a8;color:#fff}
+@media(max-width:900px){.battery-banner{grid-template-columns:200px 1fr}.battery-logo{width:190px}.battery-banner .btn{grid-column:2;justify-self:start}.battery-copy h2{font-size:25px}}
+@media(max-width:600px){.battery-banner{grid-template-columns:1fr;text-align:center;gap:22px;padding:28px 22px}.battery-logo{width:230px;margin:auto}.battery-banner .btn{grid-column:1;justify-self:center}}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -77,6 +87,8 @@
       </div>
     </div>
   </section>
+
+  <section class="battery-section" id="interstate-batteries"><div class="container"><div class="battery-banner"><img class="battery-logo" src="https://www.interstatebatteries.com/-/media/project/interstate-batteries/redesign/logo-ib-logo-classic-2/updated-logoiblogoclassic3x.webp?rev=e175bf116b004ed1b361d5570f116b58" alt="Interstate Batteries — Outrageously Dependable"><div class="battery-copy"><h2>Interstate Batteries Sold Here</h2><p>Dependable power. Friendly, local service.<br>Ask our team about the right battery for your vehicle.</p></div><a class="btn" href="tel:7636826960">Call for Availability</a></div></div></section>
 
   <section class="section detail-corner">
     <div class="container split">
