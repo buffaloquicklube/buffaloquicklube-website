@@ -1,0 +1,58 @@
+.bql-thanksgiving {
+  position: fixed;
+  inset: auto 0 max(12px, env(safe-area-inset-bottom)) 0;
+  height: 160px;
+  z-index: 9999;
+  pointer-events: none;
+  overflow: hidden;
+  contain: layout paint;
+}
+.bql-thanksgiving * { pointer-events: none; box-sizing: border-box; }
+.bql-parade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 430px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  animation: bql-cross 9s linear forwards;
+  will-change: transform;
+}
+.bql-holiday-banner {
+  position: relative;
+  flex: 0 0 240px;
+  padding: 13px 16px;
+  background: #7137a8;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 8px 2px 2px 8px;
+  box-shadow: 0 3px 0 #17111e;
+  font: 800 25px/1.18 Inter, Arial, sans-serif;
+  text-align: center;
+  transform: rotate(-3deg);
+}
+.bql-holiday-banner::after {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 60%;
+  width: 34px;
+  border-top: 3px solid #fff;
+  box-shadow: 0 1px #17111e;
+}
+.bql-turkey { flex: 0 0 180px; width: 180px; height: 160px; margin-left: 10px; overflow: visible; }
+.bql-body { animation: bql-bob .45s ease-in-out infinite alternate; }
+.bql-leg { transform-box: view-box; transform-origin: 94px 121px; animation: bql-step .45s ease-in-out infinite alternate; }
+.bql-leg-back { animation-delay: -.45s; }
+@keyframes bql-cross { from { transform: translateX(-100%); } to { transform: translateX(100vw); } }
+@keyframes bql-step { from { transform: rotate(-22deg); } to { transform: rotate(22deg); } }
+@keyframes bql-bob { from { transform: translateY(0); } to { transform: translateY(-3px); } }
+@media (max-width: 600px) {
+  .bql-thanksgiving { height: 112px; }
+  .bql-parade { width: 302px; height: 112px; }
+  .bql-holiday-banner { flex-basis: 168px; padding: 10px 8px; font-size: 18px; border-width: 2px; }
+  .bql-turkey { flex-basis: 126px; width: 126px; height: 112px; margin-left: 8px; }
+  .bql-holiday-banner::after { width: 25px; }
+}
+@media (prefers-reduced-motion: reduce) { .bql-thanksgiving { display: none; } }
